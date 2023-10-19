@@ -1,0 +1,22 @@
+
+.displayStat {
+    margin-top: 30px;
+    
+    border-radius: 5px;
+
+    font-size: 22px;
+    color: black;
+
+    width: 240px;
+    height: 60px;
+    display: flex;
+    
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-family: inherit;
+
+    border-style: none;
+   
+    background-color:rgb(177, 226, 255);
+}

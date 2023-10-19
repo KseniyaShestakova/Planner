@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+
+
+.form {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+
+}
+
+input {
+    margin-left: 75px;
+    margin-top: 20px;
+    height: 40px;
+    width: 320px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-style: none;
+    
+}
+
+.addButton {
+    margin-left: 110px;
+    margin-top: 20px;
+    margin-top: 20px;
+    height: 60px;
+    width: 250px;
+    font-size: 40px;
+    border-radius: 30px;
+    border-style: none;
+    text-align: center;
+    font-family: 'Caveat';
+}
