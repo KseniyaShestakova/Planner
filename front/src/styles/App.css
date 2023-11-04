@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+#root {
+    display: flex;
+    justify-content: left;
+    font-family: 'Josefin Sans', cursive;
+}
+
+.App {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.left_panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between center;
+    align-content: center;
+    
+    width: 500px;
+    height: 970px;
+
+    padding: 0px;
+    margin-top: 0px;
+    background-color: rgb(177, 226, 255); 
+    margin-left: 0px;
+}
+
+.center_panel {
+    display: flex;
+    flex-direction: column;
+    width: 1050px;
+    height: 970px;
+    
+    padding: 0px;
+    justify-content: space-between center;
+    margin-top: 0px;
+    background-color: rgb(226, 226, 226); 
+    margin-left: 0px;
+}
+
+.right_panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between top;
+    margin-top: 0px;
+    width: 300px;
+    height: 970px;
+    background-color: rgb(226, 226, 226); 
+}

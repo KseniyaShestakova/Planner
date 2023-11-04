@@ -1,0 +1,9 @@
+.customBtn {
+    padding: 5px 15px;
+    background: transparent;
+    font-size: 15px;
+    color: rgb(152, 200, 228);
+    border: 2px skyblue solid;
+    background-color: rgb(161, 214, 238);
+    border-radius: 10 px;
+}
