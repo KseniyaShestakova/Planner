@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+
+.icon {
+    margin-top: 30px;
+    font-size: 60px;
+    color: black;
+
+    width: 240px;
+    height: 240px;
+    border-radius: 125px;
+    
+
+    text-align: center;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Caveat';
+   
+    background-color: rgb(177, 226, 255);
+}

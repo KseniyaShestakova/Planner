@@ -34,7 +34,7 @@ const LeftPanel = (props) => {
                 <input placeholder=" New goal name" 
                 type="text"
                 onChange={e => setLabel(e.target.value)}
-                ></input>
+                className={classes.input}></input>
 
                 <button className={classes.addButton} onClick={addNewGoal}>Add new goal</button>
             </form>

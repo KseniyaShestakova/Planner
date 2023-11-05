@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+
+.panel {
+    margin-top: 10px;
+    width: 800px;
+    height: 250px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.item {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    
+    height: 200px;
+    width: 100px;
+    background-color: rgb(235, 193, 145);   
+}
+
+.label {
+    margin-top: 80px;
+    font-size: 35px;
+    font-family: 'Caveat';
+    margin-bottom: 10px;
+}

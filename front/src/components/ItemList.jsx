@@ -2,10 +2,9 @@ import React from "react";
 import Item from "./GoalItem"
 
 
-const ItemList = ({datas}) => {
-    
 
-    return(
+const ItemList = ({datas}) => {
+   return(
         <div>
 
             <div>
