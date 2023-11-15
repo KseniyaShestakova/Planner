@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 function Share(props) {
     const navigate = useNavigate();
-    const navigateSt = () => {
+    const pushBtn = (event) => {
+        event.preventDefault();
         console.log(props);
         navigate('/stat', {state: {goal: props.goal}});
     };
@@ -16,7 +17,7 @@ function Share(props) {
         </div>
         <form>
             <input placeholder=' Username' type='text'></input>
-            <button onClick={navigateSt}>{props.button}</button>
+            <button onClick={pushBtn}>{props.button}</button>
         </form>
         </div>
 
