@@ -22,7 +22,7 @@ function Stat() {
         <div className={classes.statMain}>
             <div className={classes.leftPanel}>
                 <div className={classes.text}>
-                    <p>Goal statistics: {goal}</p>
+                    <p marginTop='40px'>Goal statistics: {goal}</p>
                     <div className={classes.line}></div>
                 </div>
                 <div className={classes.weekText}>Week statistics</div>
