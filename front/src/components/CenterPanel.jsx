@@ -8,7 +8,6 @@ import Table from "./centerPanel/Table";
 const CenterPanel = (props) => {
     
 
-
     return(
         <div className="center_panel">
             <NameSurname/>

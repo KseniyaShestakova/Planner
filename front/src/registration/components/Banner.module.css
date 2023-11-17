@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+.banner {
+    width: 500px;
+    height: 180px;
+    border-radius: 5px;
+    background-color: rgb(177, 226, 255); 
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around center;
+    align-items: center;
+}
+
+.lettering {
+    margin-top: 10px;
+    font-family: 'Josefin Sans';
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.icon {
+    margin-top: 5px;
+    font-family: 'Caveat';
+    font-size: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

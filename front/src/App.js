@@ -5,7 +5,6 @@ import CenterPanel from "./components/CenterPanel.jsx";
 import RightPanel from "./components/RightPanel";
 
 function App() {
-
   return(
     // можно написать несколько Counter-ов
     <div className="App">
