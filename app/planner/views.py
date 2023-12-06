@@ -47,8 +47,7 @@ class GoalAPIView(APIView):
         return Response({'get': GoalSerializer(all, many=True).data})
 
     def post(self, request):
-        id = request.data['id']
-        user = User.objects.get(id=id)
+        user = User.objects.get(id=request.data['user'])
         created = Goal.objects.create(
             id=request.data['id'],
             user=user,
