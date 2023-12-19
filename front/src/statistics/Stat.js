@@ -14,9 +14,49 @@ import { useLocation } from "react-router-dom";
 
 function Stat() {
     const location = useLocation();
-    var state = location.state;
-    console.log({state});
-    var goal = state.goal;
+    var up_state = location.state;
+    console.log({up_state});
+    // at this point we know goal name and username and can send delete request
+    var goal = up_state.goal;
+    var user = up_state.id;
+    // create auth string
+    var auth = 'Token';
+    var token = up_state.token;
+    auth = auth.concat(' ', token);
+
+    console.log(user);
+    
+
+    const navigate = useNavigate();
+
+    const navigateMain = () => {
+        navigate('/main', {state: {token: up_state.token,
+                                   username: up_state.username, id: up_state.id}
+                                });
+    };
+
+    const deleteAndNavigate = () => {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json',
+                'Authorization': auth},
+                body: JSON.stringify({ 
+                    'user': user,
+                    'title': goal,
+                })};
+
+        console.log(requestOptions);
+        
+        fetch('http://127.0.0.1:8000/planner/api/goal/list', requestOptions)
+        .then(response => {
+            if (response.status < 200 || response.status > 299) {
+                console.log('invalid response!');
+            } else {
+                navigateMain();
+            }  
+        });
+
+    }
 
     return(
         <div className={classes.statMain}>
@@ -29,9 +69,13 @@ function Stat() {
                 <Week/>
                 <div className={classes.yearText}>Year statistics</div>
                 <Year/>
-                <nav style={{marginTop: '60px'}}>
-                    <Link to="/main" className={classes.navLink}>Back to the main page</Link>
-                </nav>
+                <button  onClick={navigateMain}>
+                        <p>Back to the main page</p>
+                </button>
+                <button  onClick={deleteAndNavigate}>
+                        <p>Delete this goal</p>
+                </button>
+
             </div>
             <div className={classes.sharePanel}>
                 <Share label='Share with others!' button='Share' goal={goal}/>

@@ -23,12 +23,109 @@ function SignUp() {
     const [status, setStatus] = useState('No password was entered');
     const [color, setColor] = useState('grey')
 
-    const navigateMain = () => {
+    const [token, setToken] = useState('');
+
+    const register = (event) => {
+        event.preventDefault();
         if (password == repeat) {
-            navigate('/main');
+            console.log(password);
+            console.log(email);
+            var username = firstName.concat('_', secondName);
+            console.log(username);
+            
+            
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    'email': email,
+                    'password': password,
+                    'username': username
+                })};
+            
+            var responseStatus = 0;
+            fetch('http://127.0.0.1:8000/planner/api/v1/users/', requestOptions)
+                    .then(response => {
+                        responseStatus = response.status;
+                        console.log(responseStatus);
+                        if (responseStatus < 200 || responseStatus > 299) {
+                            console.log('invalid response!');
+                            navigate('/register');
+                        }
+                        return response.json()
+                    })
+                    .then(data => {
+                        // if the registration is succesfull, one will be redirected to the main page
+                        // but bfore this we should make a new row in a UserIDMap table
+                        // and acquire some token
+                        const requestOptions = {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ 
+                                password: password,
+                                username: username
+                            })
+                        };
+                        // try to login with same password and token
+                        var responseStatus = 0;
+                        fetch('http://127.0.0.1:8000/planner/api/v1/token/login', requestOptions)
+                            .then(response => {
+                                responseStatus = response.status;
+                                return response.json()
+                            })
+                        .then(data => {
+                            if (responseStatus >= 200 && responseStatus <= 299) {
+                                // login went fine, we need to acquire token and proceed to main
+                                // token is acquired, we need to set user id now
+
+
+                                // make authorisation header
+                                var auth = 'Token';
+                                setToken(data['auth_token']);
+                                auth = auth.concat(' ', data['auth_token']);
+                                var outer_token = data['auth_token'];
+
+                                const requestOptions = {
+                                    method: 'POST',
+                                    headers: { 'Authorization': auth,
+                                    'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ 
+                                        'username': username
+                                    })};
+                                // send post request to make a new row
+                                fetch('http://127.0.0.1:8000/planner/api/user_id_map/list', requestOptions)
+                                .then(response => {
+                                    // response is received, we can proceed to the main page
+                                    return response.json();
+                                })
+                                .then(data => {
+            
+                                    console.log(data['post']);
+                                    var id = data['post']['id'];
+                                    navigate('/main', {state: {token: outer_token, username: username, id: id}, replace : true});
+                                });
+            
+                                // now in data we have info about all users, but we need to extract correct user id somehow
+                            } else {
+                                console.log('invalid response!');
+                                navigate('/');
+                            }
+                            
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            navigate('/');
+                        });
+                    
+                })
+                .catch(error => {
+                    console.log(error);
+                    navigate('/register');
+                });
+           
         } else {
             navigate('/register')
-          }
+        }
         
     };
 
@@ -91,7 +188,7 @@ function SignUp() {
                  type='text'
                  onChange={reenterPassword}></input>
 
-                <button onClick={navigateMain}>Continue</button>
+                <button onClick={register}>Continue</button>
                 <div style={{color: color}}>{status}</div>
                 
                 
