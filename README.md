@@ -1,4 +1,27 @@
-## Планировщик дня
+## Planner
+This is the code for an interactive planner, providing one with the opportunity to set goals and attach activities to them. The user sets the goals and then fills out the day schedule with activities, setting the description, start time, end time, and corresponding goal for each activity. You can watch the [video](https://github.com/KseniyaShestakova/Planner/blob/main/planner.mp4) to understand how this application can be used.
+
+In the future, we plan to support goal activity statistics, so users can track their progress.
+
+To run the code, one will need two terminals.
+#### Terminal 1
+Run this to launch a server with the frontend part of the application. Typically the server is launched on `http://localhost:3000/main`. Navigate to this address to start using the application.
+```
+cd front
+npm start
+```
+Note that for running this code properly you need to install javascript and npm utils.
+#### Terminal 2
+Run this to launch a server with the frontend part of the application. Typically the server is launched on `http://127.0.0.1:8000/`.
+```
+cd app
+./manage.py runserver
+```
+Note that for running this code properly you need to install python3 and django and start virtual environment for django.
+
+
+
+## [Russian description]Планировщик дня
 Цель этого проекта - предоставить интерактивный планировщик для ваших целей и задач. Можно рассматривать, как нечто похожее на гугл-календарь: пользователь вносит планируемые активности по часам. Предполагаемый процесс использования приложения таков:
 1. Клиент регистрируется в приложении. Во время этого он указывает список своих глобальных целей (спорт, учеба, чтение книг, эко-активизм и т.п.). Этот список можно редактировать позже.
    Для дальнейшего использования приложения потребуется авторизация.
