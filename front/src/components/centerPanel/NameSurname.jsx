@@ -5,8 +5,13 @@ import {
     useNavigate,
     Link
   } from "react-router-dom";
+  import { useLocation } from "react-router-dom";
 
 const NameSurname = () => {
+    const location = useLocation();
+    var state = location.state;
+    var username = state.username;
+
     const navigate = useNavigate();
 
     const navigateHome = () => {
@@ -15,7 +20,7 @@ const NameSurname = () => {
     return(
         <div className={classes.nameSurname}>
             <div className={classes.textDiv}>
-                Kseniya Shastakova
+                {username}
             </div>
             <button className={classes.logOutButton} onClick={navigateHome}>
                 Log Out
